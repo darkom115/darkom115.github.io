@@ -1,198 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Molina | Software Engineer & AI Evaluator</title>
-    <!-- Importing modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --text-color: #94a3b8;
-            --text-light: #f8fafc;
-            --accent-color: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.4);
-            --card-bg: #1e293b;
-            --border-color: #334155;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Molina | Desarrollador web en Puebla</title>
+<meta name="description" content="Omar Molina, desarrollador web en Puebla, México. Plugins para WooCommerce, sistemas de punto de venta y apps web para negocios y comunidades.">
+<meta property="og:title" content="Omar Molina | Desarrollador web en Puebla">
+<meta property="og:description" content="Plugins para WooCommerce, sistemas de punto de venta y apps web para negocios y comunidades.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://darkom115.github.io/">
+<meta name="theme-color" content="#1F3C8F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F3C8F'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%23fff' text-anchor='middle'%3EOM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #FAFAF7;
+    --tinta: #14171F;
+    --gris: #5A6170;
+    --linea: #DCDFE5;
+    --talavera: #1F3C8F;
+    --talavera-claro: #E8EDF8;
+    --ambar: #D9962A;
+    --ticket: #FFFFFF;
+    --sans: "Schibsted Grotesk", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--talavera); text-underline-offset: 3px; }
+  a:hover { color: var(--tinta); }
+  :focus-visible { outline: 3px solid var(--ambar); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Entrance Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+  /* Barra superior */
+  .barra {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1.5rem; padding-bottom: 1.5rem;
+  }
+  .marca { font-weight: 800; font-size: 1.125rem; text-decoration: none; color: var(--tinta); letter-spacing: -0.01em; }
+  .barra nav { display: flex; align-items: center; gap: 1.5rem; }
+  .barra nav a { color: var(--gris); text-decoration: none; font-weight: 500; font-size: 0.975rem; }
+  .barra nav a:hover { color: var(--tinta); }
+  .idioma {
+    font: 600 0.875rem var(--sans); color: var(--talavera);
+    background: var(--talavera-claro); border: 0; border-radius: 999px;
+    padding: 0.4rem 0.85rem; cursor: pointer;
+  }
+  .idioma:hover { background: #d9e1f4; }
 
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-            opacity: 0;
-        }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+  /* Hero */
+  .hero {
+    display: grid; grid-template-columns: 1.25fr 1fr; gap: 3rem; align-items: center;
+    padding-top: 3.5rem; padding-bottom: 5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.02; letter-spacing: -0.035em; font-weight: 800;
+    margin: 0 0 1.5rem; max-width: 12ch;
+  }
+  .hero .intro { font-size: 1.2rem; color: var(--gris); max-width: 34rem; margin: 0 0 2rem; }
+  .hero .intro strong { color: var(--tinta); font-weight: 600; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 600;
+    padding: 0.85rem 1.4rem; border-radius: 10px; border: 2px solid var(--talavera);
+  }
+  .btn-1 { background: var(--talavera); color: #fff; }
+  .btn-1:hover { background: #162d6d; border-color: #162d6d; color: #fff; }
+  .btn-2 { color: var(--talavera); }
+  .btn-2:hover { background: var(--talavera-claro); color: var(--talavera); }
 
-        header {
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            background: radial-gradient(circle at top, #1e293b 0%, var(--bg-color) 70%);
-            border-bottom: 1px solid var(--border-color);
-        }
+  /* Ticket */
+  .mostrador { position: relative; display: flex; justify-content: center; }
+  .ranura {
+    position: absolute; top: -14px; width: 340px; max-width: 92%; height: 14px;
+    background: var(--tinta); border-radius: 8px; z-index: 2;
+  }
+  .ticket-clip { overflow: hidden; width: 300px; max-width: 84%; padding-bottom: 24px; }
+  .ticket {
+    background: var(--ticket);
+    font-family: var(--mono); font-size: 0.8125rem; line-height: 1.55; color: #2a2d33;
+    padding: 1.75rem 1.4rem 2.4rem;
+    box-shadow: 0 18px 30px -18px rgba(20, 23, 31, 0.35);
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+            mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+    animation: imprimir 1.6s cubic-bezier(.3,.7,.2,1) 0.3s both;
+  }
+  @keyframes imprimir { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+  .ticket .centro { text-align: center; }
+  .ticket .titulo { font-weight: 600; font-size: 1rem; letter-spacing: 0.04em; }
+  .ticket hr { border: 0; border-top: 1px dashed #9aa0aa; margin: 0.8rem 0; }
+  .ticket .fila { display: flex; justify-content: space-between; gap: 1rem; }
+  .ticket .estado { font-weight: 600; color: var(--talavera); }
+  .ticket .total { font-weight: 600; font-size: 0.9rem; }
+  .barras {
+    height: 46px; margin: 1rem auto 0.4rem; width: 82%;
+    background: repeating-linear-gradient(90deg,
+      #2a2d33 0 2px, transparent 2px 4px, #2a2d33 4px 5px, transparent 5px 8px,
+      #2a2d33 8px 11px, transparent 11px 12px, #2a2d33 12px 13px, transparent 13px 16px);
+  }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
+  /* Secciones */
+  section { padding-top: 5rem; padding-bottom: 5rem; }
+  .sec-titulo { font-size: clamp(1.9rem, 3.5vw, 2.6rem); letter-spacing: -0.025em; line-height: 1.1; margin: 0 0 0.75rem; font-weight: 800; }
+  .sec-intro { color: var(--gris); max-width: 38rem; margin: 0 0 3rem; font-size: 1.125rem; }
 
-        h1 { color: var(--text-light); margin: 0 0 0.5rem; font-size: 3rem; font-weight: 700; letter-spacing: -1px; }
-        h2 { color: var(--accent-color); font-weight: 400; font-size: 1.2rem; margin: 0 0 1rem; }
-        .subtitle { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+  /* Proyectos */
+  #proyectos { border-top: 1px solid var(--linea); }
+  .proyecto {
+    display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem;
+    padding: 2.75rem 0; border-top: 1px solid var(--linea);
+  }
+  .proyecto:first-of-type { border-top: 0; padding-top: 0; }
+  .meta { font-size: 0.95rem; color: var(--gris); }
+  .meta p { margin: 0 0 0.35rem; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 0.85rem; font-weight: 600; padding: 0.25rem 0.7rem;
+    border-radius: 999px; margin-bottom: 0.9rem;
+  }
+  .chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .chip.vivo { background: #E3F4EA; color: #1C7A45; }
+  .chip.obra { background: #FBF0DC; color: #95620F; }
+  .proyecto h3 { font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 0.6rem; font-weight: 700; }
+  .proyecto .desc { margin: 0 0 1.25rem; max-width: 40rem; }
+  .hice { margin: 0 0 1.4rem; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 2rem; max-width: 46rem; }
+  .hice li { padding-left: 1.2rem; position: relative; font-size: 0.98rem; }
+  .hice li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; background: var(--talavera); transform: rotate(45deg); }
+  .tec { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+  .tec span { font-size: 0.85rem; padding: 0.2rem 0.6rem; border: 1px solid var(--linea); border-radius: 6px; color: var(--gris); background: #fff; }
+  .enlaces { display: flex; flex-wrap: wrap; gap: 1.25rem; font-weight: 600; font-size: 0.98rem; }
+  .proximo { color: var(--gris); font-weight: 500; }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+  /* Sobre mí */
+  #sobre-mi { background: var(--talavera); color: #fff; }
+  #sobre-mi .sec-titulo { color: #fff; }
+  .sobre { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .sobre p { margin: 0 0 1rem; font-size: 1.125rem; max-width: 34rem; color: #E3E9F7; }
+  .herramientas h3 { font-size: 1rem; margin: 0 0 0.5rem; color: #fff; font-weight: 700; }
+  .herramientas p { font-size: 1rem; margin: 0 0 1.5rem; color: #C9D4EE; }
 
-        .section { margin-bottom: 5rem; }
-        .section-title {
-            font-size: 1.8rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            display: inline-block;
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 0.3rem;
-        }
+  /* Contacto */
+  .contacto { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+  .correo {
+    display: inline-block; font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 700;
+    letter-spacing: -0.02em; color: var(--tinta); text-decoration-color: var(--ambar);
+    text-decoration-thickness: 3px; word-break: break-all;
+  }
+  .redes { list-style: none; margin: 0; padding: 0; }
+  .redes li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--linea); }
+  .redes li:first-child { border-top: 1px solid var(--linea); }
+  .redes span { color: var(--gris); }
+  .redes a { font-weight: 600; text-decoration: none; }
+  .redes a:hover { text-decoration: underline; }
 
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .skill-tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--accent-color);
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            transition: all 0.3s ease;
-        }
-        .skill-tag:hover {
-            background-color: var(--accent-color);
-            color: #000;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
+  footer { border-top: 1px solid var(--linea); padding: 2rem 0 2.5rem; color: var(--gris); font-size: 0.925rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            border-color: var(--accent-color);
-        }
-        .project-card h3 { margin-top: 0; color: var(--text-light); font-size: 1.4rem; }
-        
-        .contact-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 1.5rem;
-        }
-        .contact-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.1rem;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease, color 0.3s ease;
-        }
-        .contact-links a:hover {
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
-        }
-    </style>
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; padding-top: 1.5rem; gap: 3.5rem; }
+    .proyecto { grid-template-columns: 1fr; gap: 0.5rem; }
+    .sobre, .contacto { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 560px) {
+    .barra nav a.opc { display: none; }
+    .hice { grid-template-columns: 1fr; }
+    section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ticket { animation: none; }
+  }
+</style>
 </head>
 <body>
 
-<header class="fade-in">
-    <img src="https://ui-avatars.com/api/?name=Omar+Molina&background=38bdf8&color=000&size=150" alt="Omar Molina" class="profile-img">
-    <h1>Omar Molina</h1>
-    <h2>Software Engineer & AI Evaluator</h2>
-    <p class="subtitle">Specializing in custom web infrastructure, PHP development, and AI generative technologies.</p>
+<header class="wrap barra">
+  <a class="marca" href="#">Omar Molina</a>
+  <nav aria-label="Principal">
+    <a class="opc" href="#proyectos" data-t="nav_proy">Proyectos</a>
+    <a class="opc" href="#sobre-mi" data-t="nav_sobre">Sobre mí</a>
+    <a class="opc" href="#contacto" data-t="nav_cont">Contacto</a>
+    <button class="idioma" type="button" id="idioma" aria-label="Switch to English">EN</button>
+  </nav>
 </header>
 
-<div class="container">
-    <section class="section fade-in delay-1">
-        <h2 class="section-title">About Me</h2>
-        <p>I am a software developer based in Puebla, Mexico. I specialize in building robust web infrastructure, developing custom B2B plugins for e-commerce, and evaluating emerging tech. With a strong analytical mindset, I combine my expertise in backend logic, hardware troubleshooting, and data evaluation to deliver scalable, secure solutions.</p>
-    </section>
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1 data-t="h1">Hago software para negocios de verdad.</h1>
+      <p class="intro" data-t="intro">Soy <strong>Omar Molina</strong>, desarrollador web en Puebla, México. Construyo plugins para WooCommerce, sistemas de punto de venta y apps web para distribuidoras, tiendas y comunidades.</p>
+      <div class="acciones">
+        <a class="btn btn-1" href="#proyectos" data-t="cta1">Ver proyectos</a>
+        <a class="btn btn-2" href="mailto:omarmaster115@gmail.com" data-t="cta2">Escríbeme</a>
+      </div>
+    </div>
 
-    <section class="section fade-in delay-2">
-        <h2 class="section-title">Tech Stack & Skills</h2>
-        <div class="skills-grid">
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">WordPress / WooCommerce</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Web & Data Scraping</span>
-            <span class="skill-tag">Cybersecurity</span>
-            <span class="skill-tag">Hardware Diagnostics</span>
+    <div class="mostrador" aria-label="Resumen de trabajos en forma de ticket" data-t-label="ticket_label">
+      <div class="ranura" aria-hidden="true"></div>
+      <div class="ticket-clip">
+        <div class="ticket">
+          <div class="centro">
+            <div class="titulo">OMAR MOLINA</div>
+            <div data-t="t_sub">Desarrollo web</div>
+            <div>Puebla, MX</div>
+          </div>
+          <hr>
+          <div class="fila"><span data-t="t_folio">FOLIO 0115</span><span id="fecha"></span></div>
+          <hr>
+          <div class="fila"><span data-t="t_1">Plugins WooCommerce</span><span>x2</span></div>
+          <div class="fila"><span data-t="t_2">Punto de venta</span><span>x1</span></div>
+          <div class="fila"><span data-t="t_3">Mapa colaborativo</span><span>x1</span></div>
+          <div class="fila"><span data-t="t_4">Videos de tecnología</span><span>+</span></div>
+          <hr>
+          <div class="fila total"><span data-t="t_est">ESTADO</span><span class="estado" data-t="t_disp">DISPONIBLE</span></div>
+          <hr>
+          <div class="centro" data-t="t_gracias">¡Gracias por su visita!</div>
+          <div class="barras" aria-hidden="true"></div>
+          <div class="centro">darkom115.github.io</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <section class="section fade-in delay-3">
-        <h2 class="section-title">Featured Projects</h2>
-        
-        <div class="project-card">
-            <h3>B2B E-commerce Systems for the Pharmaceutical Sector</h3>
-            <p>Developed and maintained custom WooCommerce plugins (Agents, Remissions, credit limits, custom PDF billing) for distributors like Intermed and Novamet. Implemented complex backend logic to handle split shipments and multi-agent commissions natively.</p>
-        </div>
-        
-        <div class="project-card">
-            <h3>Cybersecurity Research & Content Creation</h3>
-            <p>Created educational content and infographics explaining web vulnerabilities. Evaluated the security implications of server-side scripting in dual-boot environments.</p>
-        </div>
-    </section>
+  <section id="proyectos">
+    <div class="wrap">
+      <h2 class="sec-titulo" data-t="proy_t">Proyectos</h2>
+      <p class="sec-intro" data-t="proy_i">Herramientas que usan personas reales todos los días: el catálogo de una distribuidora, la caja de una tienda, un mapa para una comunidad.</p>
 
-    <section class="section fade-in delay-3">
-        <h2 class="section-title">Contact</h2>
-        <p>Feel free to explore my repositories or get in touch:</p>
-        <ul class="contact-links">
-            <li><a href="https://github.com/darkom115" target="_blank">GitHub Profile</a></li>
-            <li><a href="mailto:omarmaster115@gmail.com">omarmaster115@gmail.com</a></li>
-        </ul>
-    </section>
-</div>
+      <article class="proyecto">
+        <div class="meta">
+          <span class="chip vivo" data-t="vivo">En producción</span>
+          <p data-t="p1_tipo">Plugins para WordPress</p>
+          <p data-t="p1_cli">Para Intermed y NovaMet</p>
+        </div>
+        <div>
+          <h3 data-t="p1_t">Tiendas B2B para distribuidoras farmacéuticas</h3>
+          <p class="desc" data-t="p1_d">Plugins a medida para WooCommerce que adaptan la tienda en línea a cómo venden las distribuidoras: con agentes, crédito y remisiones, no solo con un carrito de compras.</p>
+          <ul class="hice">
+            <li data-t="p1_a">Agentes de venta con comisiones</li>
+            <li data-t="p1_b">Remisiones y facturas en PDF con diseño propio</li>
+            <li data-t="p1_c">Límites de crédito y envíos parciales</li>
+            <li data-t="p1_e">Catálogo automático en Excel, HTML y CSV</li>
+            <li data-t="p1_f">Rediseño de la página de inicio con más de 7,600 productos</li>
+          </ul>
+          <div class="tec"><span>PHP</span><span>WordPress</span><span>WooCommerce</span><span>Hostinger</span></div>
+          <div class="enlaces">
+            <a href="https://intermed.click" target="_blank" rel="noopener">intermed.click</a>
+            <a href="https://distribucioneselcompetidor.com.mx/" target="_blank" rel="noopener">NovaMet</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proyecto">
+        <div class="meta">
+          <span class="chip obra" data-t="obra">En desarrollo</span>
+          <p data-t="p2_tipo">Programa de escritorio</p>
+          <p data-t="p2_cli">Hecho primero para una tienda de novedades</p>
+        </div>
+        <div>
+          <h3>Oh My POS!</h3>
+          <p class="desc" data-t="p2_d">Punto de venta e inventario que funciona sin internet. Pensado para tiendas pequeñas en México que necesitan controlar su caja sin pagar una suscripción.</p>
+          <ul class="hice">
+            <li data-t="p2_a">Ventas con pagos mixtos y devoluciones</li>
+            <li data-t="p2_b">Apartados con abonos y saldo pendiente</li>
+            <li data-t="p2_c">Apertura y corte de caja</li>
+            <li data-t="p2_e">Reportes por día, semana y mes en PDF</li>
+            <li data-t="p2_f">Usuarios con contraseña y registro de cambios</li>
+            <li data-t="p2_g">Tickets de 58 mm con el logo de cada tienda</li>
+          </ul>
+          <div class="tec"><span>JavaScript</span><span>HTML</span><span>CSS</span><span data-t="p2_off">100% offline</span></div>
+          <div class="enlaces"><span class="proximo" data-t="p2_prox">Pronto en GitHub</span></div>
+        </div>
+      </article>
+
+      <article class="proyecto">
+        <div class="meta">
+          <span class="chip vivo" data-t="linea">En línea</span>
+          <p data-t="p3_tipo">App web bilingüe</p>
+          <p data-t="p3_cli">Proyecto personal</p>
+        </div>
+        <div>
+          <h3>MIRA</h3>
+          <p class="desc" data-t="p3_d">Mapa de Incidentes y Reportes Anómalos: una app donde la comunidad reporta fenómenos en el cielo del norte de México y el sur de Estados Unidos, con su evidencia.</p>
+          <ul class="hice">
+            <li data-t="p3_a">Mapa interactivo de reportes</li>
+            <li data-t="p3_b">Subida de evidencia y moderación</li>
+            <li data-t="p3_c">Panel de administración</li>
+            <li data-t="p3_e">Respaldos diarios de la base de datos</li>
+          </ul>
+          <div class="tec"><span>JavaScript</span><span>Supabase</span><span>Cloudflare Pages</span><span>GitHub</span></div>
+          <div class="enlaces">
+            <a href="https://mira-9wm.pages.dev" target="_blank" rel="noopener" data-t="p3_ver">Abrir la app</a>
+            <a href="https://github.com/darkom115/mira" target="_blank" rel="noopener" data-t="p3_cod">Ver el código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proyecto">
+        <div class="meta">
+          <span class="chip vivo" data-t="activo">Activo</span>
+          <p data-t="p4_tipo">Videos cortos</p>
+          <p>YouTube y TikTok</p>
+        </div>
+        <div>
+          <h3 data-t="p4_t">Tecnología explicada en un minuto</h3>
+          <p class="desc" data-t="p4_d">Videos cortos sobre tecnología y ciberseguridad: cómo funcionan las cosas, qué riesgos hay y qué tan ciertos son los rumores que circulan.</p>
+          <div class="enlaces">
+            <a href="https://www.youtube.com/@OmarMolina115" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.tiktok.com/@omr.ml.mn" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="wrap sobre">
+      <div>
+        <h2 class="sec-titulo" data-t="sobre_t">Sobre mí</h2>
+        <p data-t="sobre_1">Me gusta construir herramientas que resuelven un problema concreto de alguien: una distribuidora que necesita controlar el crédito de sus clientes, una tienda que quiere saber cuánto vendió hoy, una comunidad que quiere compartir lo que ve en el cielo.</p>
+        <p data-t="sobre_2">Trabajo del lado del servidor con PHP y WordPress, en el navegador con JavaScript, y en Linux cuando hay que meterse a la máquina. Sigo aprendiendo todo el tiempo, y cada proyecto sale de esa curiosidad.</p>
+      </div>
+      <div class="herramientas">
+        <h3 data-t="h_web">Web y comercio en línea</h3>
+        <p>PHP, WordPress, WooCommerce, HTML, CSS, JavaScript</p>
+        <h3 data-t="h_datos">Datos y publicación</h3>
+        <p>Supabase, GitHub, Cloudflare Pages, Netlify, Hostinger</p>
+        <h3 data-t="h_sis">Sistemas</h3>
+        <p data-t="h_sis_d">Linux, diagnóstico de hardware, seguridad web</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap contacto">
+      <div>
+        <h2 class="sec-titulo" data-t="cont_t">¿Tienes un proyecto?</h2>
+        <p class="sec-intro" data-t="cont_i">Cuéntame qué necesita tu negocio. Te respondo por correo.</p>
+        <a class="correo" href="mailto:omarmaster115@gmail.com">omarmaster115@gmail.com</a>
+      </div>
+      <ul class="redes">
+        <li><span>GitHub</span><a href="https://github.com/darkom115" target="_blank" rel="noopener">darkom115</a></li>
+        <li><span>YouTube</span><a href="https://www.youtube.com/@OmarMolina115" target="_blank" rel="noopener">@OmarMolina115</a></li>
+        <li><span>TikTok</span><a href="https://www.tiktok.com/@omr.ml.mn" target="_blank" rel="noopener">@omr.ml.mn</a></li>
+        <li><span>Instagram</span><a href="https://www.instagram.com/vader_0115x" target="_blank" rel="noopener">@vader_0115x</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 
 <footer>
-    <p>&copy; 2026 Omar Molina. Designed and built for the web.</p>
+  <div class="wrap">
+    <span>© <span id="anio">2026</span> Omar Molina</span>
+    <span data-t="pie">Hecho a mano en Puebla. <a href="https://github.com/darkom115/darkom115.github.io" target="_blank" rel="noopener">Ver el código de esta página</a></span>
+  </div>
 </footer>
 
+<script>
+  // Textos en inglés. El español ya está escrito en el HTML.
+  const EN = {
+    nav_proy: "Projects", nav_sobre: "About", nav_cont: "Contact",
+    h1: "I build software for real businesses.",
+    intro: "I'm <strong>Omar Molina</strong>, a web developer in Puebla, Mexico. I build WooCommerce plugins, point-of-sale systems and web apps for distributors, shops and communities.",
+    cta1: "See projects", cta2: "Email me",
+    ticket_label: "Summary of work, styled as a receipt",
+    t_sub: "Web development", t_folio: "RECEIPT 0115",
+    t_1: "WooCommerce plugins", t_2: "Point of sale", t_3: "Community map", t_4: "Tech videos",
+    t_est: "STATUS", t_disp: "AVAILABLE", t_gracias: "Thanks for visiting!",
+    proy_t: "Projects",
+    proy_i: "Tools that real people use every day: a distributor's catalog, a shop's cash register, a map for a community.",
+    vivo: "Live", obra: "In progress", linea: "Online", activo: "Active",
+    p1_tipo: "WordPress plugins", p1_cli: "For Intermed and NovaMet",
+    p1_t: "B2B stores for pharmaceutical distributors",
+    p1_d: "Custom WooCommerce plugins that shape the online store around how distributors actually sell: with sales agents, credit and delivery notes, not just a shopping cart.",
+    p1_a: "Sales agents with commissions", p1_b: "Custom-designed PDF invoices and delivery notes",
+    p1_c: "Credit limits and split shipments", p1_e: "Automatic catalog export to Excel, HTML and CSV",
+    p1_f: "Homepage redesign for a 7,600+ product catalog",
+    p2_tipo: "Desktop app", p2_cli: "First built for a gift shop",
+    p2_d: "Point of sale and inventory that works without internet. Made for small shops in Mexico that need to run their register without paying a subscription.",
+    p2_a: "Sales with mixed payments and returns", p2_b: "Layaways with partial payments and balance due",
+    p2_c: "Opening and closing the register", p2_e: "Daily, weekly and monthly PDF reports",
+    p2_f: "Password-protected users and change log", p2_g: "58 mm receipts with each shop's logo",
+    p2_off: "100% offline", p2_prox: "Coming soon to GitHub",
+    p3_tipo: "Bilingual web app", p3_cli: "Personal project",
+    p3_d: "MIRA (Map of Anomalous Incidents and Reports): an app where the community reports sky phenomena in northern Mexico and the southern US, along with their evidence.",
+    p3_a: "Interactive report map", p3_b: "Evidence uploads and moderation",
+    p3_c: "Admin dashboard", p3_e: "Daily database backups",
+    p3_ver: "Open the app", p3_cod: "View the code",
+    p4_tipo: "Short videos", p4_t: "Tech explained in a minute",
+    p4_d: "Short videos about technology and cybersecurity: how things work, what the risks are, and how true the rumors going around really are.",
+    sobre_t: "About me",
+    sobre_1: "I like building tools that solve someone's concrete problem: a distributor that needs to manage customer credit, a shop that wants to know how much it sold today, a community that wants to share what it sees in the sky.",
+    sobre_2: "I work server-side with PHP and WordPress, in the browser with JavaScript, and on Linux when I need to get into the machine. I keep learning all the time, and every project comes from that curiosity.",
+    h_web: "Web and e-commerce", h_datos: "Data and deployment", h_sis: "Systems",
+    h_sis_d: "Linux, hardware diagnostics, web security",
+    cont_t: "Got a project?", cont_i: "Tell me what your business needs. I'll reply by email.",
+    pie: 'Handmade in Puebla. <a href="https://github.com/darkom115/darkom115.github.io" target="_blank" rel="noopener">View this page\'s code</a>'
+  };
+
+  const ES = {};
+  document.querySelectorAll("[data-t]").forEach(el => { ES[el.dataset.t] = el.innerHTML; });
+  document.querySelectorAll("[data-t-label]").forEach(el => { ES[el.dataset.tLabel] = el.getAttribute("aria-label"); });
+
+  const boton = document.getElementById("idioma");
+  let idioma = "es";
+  try { if (localStorage.getItem("idioma") === "en") idioma = "en"; } catch (e) {}
+
+  function aplicar(lang) {
+    const textos = lang === "en" ? EN : ES;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-t]").forEach(el => {
+      const t = textos[el.dataset.t];
+      if (t !== undefined) el.innerHTML = t;
+    });
+    document.querySelectorAll("[data-t-label]").forEach(el => {
+      const t = textos[el.dataset.tLabel];
+      if (t !== undefined) el.setAttribute("aria-label", t);
+    });
+    boton.textContent = lang === "en" ? "ES" : "EN";
+    boton.setAttribute("aria-label", lang === "en" ? "Cambiar a español" : "Switch to English");
+    document.title = lang === "en" ? "Omar Molina | Web developer in Puebla" : "Omar Molina | Desarrollador web en Puebla";
+    const hoy = new Date();
+    document.getElementById("fecha").textContent = hoy.toLocaleDateString(lang === "en" ? "en-US" : "es-MX", { day: "2-digit", month: "2-digit", year: "numeric" });
+    document.getElementById("anio").textContent = hoy.getFullYear();
+  }
+
+  boton.addEventListener("click", () => {
+    idioma = idioma === "es" ? "en" : "es";
+    try { localStorage.setItem("idioma", idioma); } catch (e) {}
+    aplicar(idioma);
+  });
+
+  aplicar(idioma);
+</script>
 </body>
 </html>
